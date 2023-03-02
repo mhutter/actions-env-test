@@ -10,4 +10,4 @@ jobs:
       SECRETS: '${{ toJson(secrets) }}'
     steps:
       - run: env
-      - run: echo "$SECRETS" | jq
+      - run: jq -r 'to_entries | map("\(.key)=\(.value | @sh)") | .[]' <<< "$SECRETS"
