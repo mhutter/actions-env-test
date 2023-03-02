@@ -1,0 +1,11 @@
+name: Testing
+"on":
+  push: {}
+
+jobs:
+  test:
+    environment: test
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo '${{ toJson(secrets) }}'
