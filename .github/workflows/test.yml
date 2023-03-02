@@ -9,5 +9,5 @@ jobs:
     env:
       SECRETS: '${{ toJson(secrets) }}'
     steps:
-      - run: |
-          env | sort
+      - run: env
+      - run: echo "$SECRETS" | jq
