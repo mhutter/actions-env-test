@@ -6,6 +6,8 @@ jobs:
   test:
     environment: test
     runs-on: ubuntu-latest
+    env:
+      SECRETS: '${{ toJson(secrets) }}'
     steps:
       - run: |
-          echo '${{ toJson(secrets) }}'
+          env | sort
